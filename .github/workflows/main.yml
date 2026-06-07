@@ -1,0 +1,39 @@
+# main.py  (请将以下代码完整复制并保存)
+来自kivy.app导入应用程序
+从kivy.uix.boxlayout导入BoxLayout
+从kivy.uix.textinput导入TextInput
+from kivy.uix.button导入按钮
+
+SimpleCalculator(App)类:
+Def构建(自身):
+布局=长方体布局(方向='垂直'，填充=20，间距=10)
+self.result_label=TextInput(text='0'，font_size=40，readonly=True，Halign='right')
+layout.add_widget(self.result_label)
+self.num1=TextInput(提示文本='第一个数字'，font_size=24，input_filter='浮动')
+self.num2=TextInput(提示文本='第二个数字'，font_size=24，input_filter='浮动')
+layout.add_widget(self.num1)
+layout.add_widget(self.num2)
+
+BTN_layout=BoxLayout(间距=10)
+for op in['+'，'-'，'*'，'/']:
+BTN=按钮(text=op，font_size=30)
+btn.bind(on_press=self.calculate)
+BTN_layout.add_widget(btn)
+
+layout.add_widget(btn_layout)
+返回布局
+
+def计算(自身，实例):
+尝试:
+如果self.num1.text else0，则a=float(self.num1.text)
+如果self.num2.text else0，则B=float(self.num2.text)
+if instance.text=='+': 结果=a+b
+Elif instance.text=='-': 结果=a-b
+Elif instance.text=='*': 结果=a*b
+Elif instance.text=='/': 如果b！=0，则结果=a/b否则'错误：除数不能为0'
+self.result_label.text=str(result)
+除了ValueError:
+self.result_label.text='请输入数字'
+
+如果__名称__=='__主要的__':
+)()
